@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "author": "Step 9 - LCD",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -20, "left": 300, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 150, "left": 300, "attrs": { "pins": "i2c" } }
+  ],
+  "connections": [
+    ["dht1:VCC", "uno:5V", "red", []],
+    ["dht1:SDA", "uno:2", "green", []],
+    ["dht1:GND", "uno:GND.1", "black", []],
+
+    ["lcd1:VCC", "uno:5V", "red", []],
+    ["lcd1:GND", "uno:GND.2", "black", []],
+    ["lcd1:SDA", "uno:A4", "blue", []],
+    ["lcd1:SCL", "uno:A5", "orange", []]
+  ],
+  "dependencies": {}
+}

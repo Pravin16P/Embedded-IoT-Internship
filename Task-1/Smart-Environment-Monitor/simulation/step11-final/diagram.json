@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "author": "Step 11 - Final project",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -153.3, "left": 301.8, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -198.4,
+      "left": 452,
+      "attrs": {}
+    },
+    { "type": "wokwi-hc-sr04", "id": "ultra1", "top": 250, "left": 300, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -252.8,
+      "left": -4,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 98.4, "left": 424.2, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": 20, "left": 300, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "led1", "top": 0, "left": 420, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 60, "left": 300, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "led2", "top": 50, "left": 420, "attrs": { "color": "green" } },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 399.8,
+      "left": 96,
+      "attrs": { "color": "blue" }
+    }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:5V", "red", [] ],
+    [ "dht1:SDA", "uno:2", "green", [] ],
+    [ "dht1:GND", "uno:GND.2", "black", [] ],
+    [ "ldr1:VCC", "uno:5V", "red", [] ],
+    [ "ldr1:GND", "uno:GND.2", "black", [] ],
+    [ "ldr1:AO", "uno:A1", "orange", [] ],
+    [ "ultra1:VCC", "uno:5V", "red", [] ],
+    [ "ultra1:GND", "uno:GND.2", "black", [] ],
+    [ "ultra1:TRIG", "uno:9", "green", [] ],
+    [ "ultra1:ECHO", "uno:10", "blue", [] ],
+    [ "lcd1:VCC", "uno:5V", "red", [] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [] ],
+    [ "lcd1:SDA", "uno:A4", "blue", [] ],
+    [ "lcd1:SCL", "uno:A5", "orange", [] ],
+    [ "bz1:2", "uno:8", "green", [] ],
+    [ "bz1:1", "uno:GND.1", "black", [] ],
+    [ "uno:11", "r1:1", "green", [] ],
+    [ "r1:2", "led1:A", "green", [] ],
+    [ "led1:C", "uno:GND.1", "black", [] ],
+    [ "uno:12", "r2:1", "green", [] ],
+    [ "r2:2", "led2:A", "green", [] ],
+    [ "led2:C", "uno:GND.1", "black", [] ],
+    [ "btn1:1.l", "uno:7", "blue", [] ],
+    [ "btn1:2.l", "uno:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}
